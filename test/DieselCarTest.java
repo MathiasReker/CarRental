@@ -33,18 +33,31 @@ class DieselCarTest {
 
   @Test
   void testCalculateGreenOwnershipTax() {
-    dieselCar.kmPrL = 23;
+    double result;
+
+    dieselCar.kmPrL = 0;
+    dieselCar.setParticleFilter(true);
+    result = dieselCar.calculateGreenOwnershipTax();
+    Assertions.assertEquals(25730.0, result);
+
+    dieselCar.kmPrL = 10;
     dieselCar.setParticleFilter(false);
-    double result = dieselCar.calculateGreenOwnershipTax();
-    Assertions.assertEquals(1460.0, result);
+    result = dieselCar.calculateGreenOwnershipTax();
+    Assertions.assertEquals(9270.0, result);
+
+    dieselCar.kmPrL = 50;
+    dieselCar.setParticleFilter(true);
+    result = dieselCar.calculateGreenOwnershipTax();
+    Assertions.assertEquals(460.0, result);
   }
 
   @Test
   void testToString() {
     String result = dieselCar.toString();
-    Assertions.assertTrue(result.contains("Reg number: "));
+
     for (String s :
         Arrays.asList(
+            "Reg number: ",
             "Brand: ",
             "Model: ",
             "Year: ",
@@ -53,6 +66,7 @@ class DieselCarTest {
             "Has particle filter: ")) {
       Assertions.assertTrue(result.contains(s));
     }
+
     for (String s : Arrays.asList("Octane: ", "Battery capacity: ", "Wh pr. km: ")) {
       Assertions.assertFalse(result.contains(s));
     }

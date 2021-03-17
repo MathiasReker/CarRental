@@ -8,9 +8,19 @@ class PetrolCarTest {
 
   @Test
   void testCalculateGreenOwnershipTax() {
-    petrolCar.setKmPrL(14);
-    double result = petrolCar.calculateGreenOwnershipTax();
+    double result;
+
+    petrolCar.setKmPrL(3);
+    result = petrolCar.calculateGreenOwnershipTax();
+    Assertions.assertEquals(10470.0, result);
+
+    petrolCar.setKmPrL(15);
+    result = petrolCar.calculateGreenOwnershipTax();
     Assertions.assertEquals(2340.0, result);
+
+    petrolCar.setKmPrL(30);
+    result = petrolCar.calculateGreenOwnershipTax();
+    Assertions.assertEquals(330.0, result);
   }
 
   @Test
@@ -40,6 +50,7 @@ class PetrolCarTest {
   @Test
   void testToString() {
     String result = petrolCar.toString();
+
     for (String s :
         Arrays.asList(
             "Reg number: ",
@@ -51,6 +62,7 @@ class PetrolCarTest {
             "Octane: ")) {
       Assertions.assertTrue(result.contains(s));
     }
+
     for (String s : Arrays.asList("Battery capacity: ", "Wh pr. km: ", "Has particle filter: ")) {
       Assertions.assertFalse(result.contains(s));
     }

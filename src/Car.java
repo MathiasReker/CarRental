@@ -58,7 +58,7 @@ public abstract class Car {
   @Override
   public String toString() {
     // common
-    ArrayList<String> str =
+    ArrayList<String> s =
         new ArrayList<>(
             Arrays.asList(
                 "Reg number: %s".formatted(regNumber),
@@ -70,21 +70,21 @@ public abstract class Car {
 
     // individually
     if (this instanceof DieselCar) {
-      str.add("Has particle filter: %s".formatted(hasParticleFilter()));
+      s.add("Has particle filter: %s".formatted(hasParticleFilter()));
     }
 
     if (this instanceof PetrolCar) {
-      str.add("Octane: %d".formatted(getOctane()));
+      s.add("Octane: %d".formatted(getOctane()));
     }
 
     if (this instanceof ElectricCar) {
-      str.addAll(
+      s.addAll(
           Arrays.asList(
               "Battery capacity: %d kWh".formatted(getBatteryCapacityKWh()),
               "Max km: %s km".formatted(getMaxKm()),
               "Wh pr. km: %d".formatted(getWhPrKm())));
     }
 
-    return String.join("\n", str);
+    return String.join("\n", s);
   }
 }

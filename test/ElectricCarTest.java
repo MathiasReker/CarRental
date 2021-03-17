@@ -8,8 +8,10 @@ class ElectricCarTest {
 
   @Test
   void testCalculateGreenOwnershipTax() {
+    double result;
+
     electricCar.setWhPrKm(200);
-    double result = electricCar.calculateGreenOwnershipTax();
+    result = electricCar.calculateGreenOwnershipTax();
     Assertions.assertEquals(330.0, result);
   }
 
@@ -28,6 +30,7 @@ class ElectricCarTest {
   @Test
   void testToString() {
     String result = electricCar.toString();
+
     for (String s :
         Arrays.asList(
             "Reg number: ",
@@ -41,6 +44,7 @@ class ElectricCarTest {
             "Wh pr. km: ")) {
       Assertions.assertTrue(result.contains(s));
     }
+
     for (String s : Arrays.asList("Octane: ", "Has particle filter: ")) {
       Assertions.assertFalse(result.contains(s));
     }
