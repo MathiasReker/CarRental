@@ -35,7 +35,7 @@ class ElectricCarTest {
             "Model: ",
             "Max km: ",
             "Year: ",
-            "Numbers of doors: ",
+            "Number of doors: ",
             "Green ownership tax: ",
             "Battery capacity: ",
             "Wh pr. km: ")) {

@@ -45,9 +45,8 @@ class PetrolCarTest {
             "Reg number: ",
             "Brand: ",
             "Model: ",
-            "Max km: ",
             "Year: ",
-            "Numbers of doors: ",
+            "Number of doors: ",
             "Green ownership tax: ",
             "Octane: ")) {
       Assertions.assertTrue(result.contains(s));

@@ -7,7 +7,7 @@ public abstract class Car {
   private String brand;
   private String model;
   private int year;
-  private int numbersOfDoors;
+  private int numberOfDoors;
 
   protected static double getWeightTax(double kmPrL) {
     if (kmPrL > 20) {
@@ -43,8 +43,8 @@ public abstract class Car {
     this.model = model;
   }
 
-  public void setNumbersOfDoors(int numbersOfDoors) {
-    this.numbersOfDoors = numbersOfDoors;
+  public void setNumberOfDoors(int numberOfDoors) {
+    this.numberOfDoors = numberOfDoors;
   }
 
   public void setRegNumber(String regNumber) {
@@ -64,9 +64,8 @@ public abstract class Car {
                 "Reg number: %s".formatted(regNumber),
                 "Brand: %s".formatted(brand),
                 "Model: %s".formatted(model),
-                "Max km: %s".formatted(getMaxKm()),
                 "Year: %d".formatted(year),
-                "Numbers of doors: %d".formatted(numbersOfDoors),
+                "Number of doors: %d".formatted(numberOfDoors),
                 "Green ownership tax: %s kr.".formatted(calculateGreenOwnershipTax())));
 
     // individually
@@ -81,7 +80,7 @@ public abstract class Car {
     if (this instanceof ElectricCar) {
       str.addAll(
           Arrays.asList(
-              "Battery capacity: %d kwh".formatted(getBatteryCapacityKWh()),
+              "Battery capacity: %d kWh".formatted(getBatteryCapacityKWh()),
               "Max km: %s km".formatted(getMaxKm()),
               "Wh pr. km: %d".formatted(getWhPrKm())));
     }

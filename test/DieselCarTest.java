@@ -47,9 +47,8 @@ class DieselCarTest {
         Arrays.asList(
             "Brand: ",
             "Model: ",
-            "Max km: ",
             "Year: ",
-            "Numbers of doors: ",
+            "Number of doors: ",
             "Green ownership tax: ",
             "Has particle filter: ")) {
       Assertions.assertTrue(result.contains(s));
